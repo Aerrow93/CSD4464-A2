@@ -16,6 +16,11 @@ public class Course {
 
     List<Student> students = new ArrayList<Student>();
 
+    @Override
+    public String toString() {
+        return "Course{" + "students=" + students + '}';
+    }
+
     public Course() {
     }
 
