@@ -145,7 +145,7 @@ public class CSD4464A2Test {
         assertEquals(expResult, result);
 
     }
-    
+
     @Test
     public void testNoConstructor() {
         Object obj = null;
@@ -163,6 +163,57 @@ public class CSD4464A2Test {
         boolean result = instance1.equals(instance2);
         assertEquals(expResult, result);
 
+    }
+
+    @Test
+    public void testGetName() {
+        System.out.println("getName");
+        String id = "c0123456";
+        String name = "Bill Smith";
+        String gender = "male";
+        double grade = 89.3;
+        Student instance = new Student(name,id,gender,grade);
+        String expResult = "Bill Smith";
+        String result = instance.getName();
+        assertEquals(expResult, result);
+    }
+    @Test
+    public void testGetId() {
+        System.out.println("getId");
+        String id = "c0123456";
+        String name = "Bill Smith";
+        String gender = "male";
+        double grade = 89.3;
+        Student instance = new Student(name,id,gender,grade);
+        String expResult = "c0123456";
+        String result = instance.getId();
+        assertEquals(expResult, result);
+    }
+    
+     @Test
+    public void testGetGender() {
+        System.out.println("getGender");
+        String id = "c0123456";
+        String name = "Bill Smith";
+        String gender = "male";
+        double grade = 89.3;
+        Student instance = new Student(name,id,gender,grade);
+        String expResult = "male";
+        String result = instance.getGender();
+        assertEquals(expResult, result);
+    }
+    
+     @Test
+    public void testGetGrade() {
+        System.out.println("getGrade");
+        String id = "c0123456";
+        String name = "Bill Smith";
+        String gender = "male";
+        double grade = 89.3;
+        Student instance = new Student(name,id,gender,grade);
+        double expResult = 89.3;
+        double result = instance.getGrade();
+        assertEquals(expResult, result,0.2);
     }
 
     public class StudentImpl extends Student {
