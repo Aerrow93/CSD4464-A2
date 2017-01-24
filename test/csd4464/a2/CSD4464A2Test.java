@@ -215,6 +215,46 @@ public class CSD4464A2Test {
         double result = instance.getGrade();
         assertEquals(expResult, result,0.2);
     }
+    
+    @Test
+    public void testSetName() {
+        System.out.println("setName");
+        String name = "Bob";
+        Student instance = new Student();
+        instance.setName(name);
+        String result = instance.getName();
+        assertEquals(name, result);
+    }
+    
+     @Test
+    public void testSetId() {
+        System.out.println("setId");
+        String id = "c0123456";
+        Student instance = new Student();
+        instance.setId(id);
+        String result = instance.getId();
+        assertEquals(id, result);
+    }
+    
+     @Test
+    public void testSetGender() {
+        System.out.println("setGender");
+        String gender = "male";
+        Student instance = new Student();
+        instance.setGender(gender);
+        String result = instance.getGender();
+        assertEquals(gender, result);
+    }
+    
+     @Test
+    public void testSetGrade() {
+        System.out.println("setGrade");
+        double grade = 89.3;
+        Student instance = new Student();
+        instance.setGrade(grade);
+        double result = instance.getGrade();
+        assertEquals(grade, result,0.02);
+    }
 
     public class StudentImpl extends Student {
     }
