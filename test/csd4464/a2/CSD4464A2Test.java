@@ -52,8 +52,6 @@ public class CSD4464A2Test {
         fail("The test case is a prototype.");
     }
 
-   
-
     @Test
     public void testToString() throws org.json.simple.parser.ParseException {
         try {
@@ -70,11 +68,22 @@ public class CSD4464A2Test {
         }
 
     }
+
+    @Test
+    public void testEqualsStudent() {
+        Object obj = null;
+        StudentImpl instance1 = new StudentImpl();
+        instance1.setId("C0123456");
+        instance1.setName("Bob");
+        StudentImpl instance2 = new StudentImpl();
+        instance1.setId("C0123456");
+        instance2.setName("Bob");
+        boolean expResult = true;
+        boolean result = instance1.equals(instance2);
+        assertEquals(expResult, result);
+    }
     
     public class StudentImpl extends Student {
     }
-
-
- 
 
 }
