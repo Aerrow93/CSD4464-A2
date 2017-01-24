@@ -24,7 +24,7 @@ public class Course {
     }
 
     public void add(List<Student> students) {
-        this.students.add(students);
+     //   this.students.add(students);
     }
 
     public void insert(List<Student> students, int i){
