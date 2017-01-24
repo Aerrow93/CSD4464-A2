@@ -92,6 +92,20 @@ public class CSD4464A2Test {
         boolean result = instance1.equals(instance2);
         assertEquals(expResult, result);
     }
+    
+    @Test
+    public void testNotNameEqualsStudent() {
+        Object obj = null;
+        StudentImpl instance1 = new StudentImpl();
+        instance1.setId("C0123456");
+        instance1.setName("Jim");
+        StudentImpl instance2 = new StudentImpl();
+        instance1.setId("C0123456");
+        instance2.setName("Bob");
+        boolean expResult = false;
+        boolean result = instance1.equals(instance2);
+        assertEquals(expResult, result);
+    }
 
     public class StudentImpl extends Student {
     }
