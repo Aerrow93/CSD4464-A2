@@ -120,6 +120,12 @@ public class CSD4464A2Test {
         boolean result = instance1.equals(instance2);
         assertEquals(expResult, result);
     }
+    
+    @Test
+    public void testNonObject(){
+        Object obj = null;
+      
+}
 
     public class StudentImpl extends Student {
     }
