@@ -6,6 +6,7 @@
 package csd4464.a2;
 
 import java.util.Objects;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -66,7 +67,9 @@ public class Student {
 
     @Override
     public String toString() {
+     //  JSONObject jsonObj = new JSONObject(jsonString.toString());
         return "Student{" + "name=" + name + ", id=" + id + ", gender=" + gender + ", grade=" + grade + '}';
+       
     }
 
     @Override

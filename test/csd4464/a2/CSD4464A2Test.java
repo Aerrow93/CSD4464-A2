@@ -42,20 +42,14 @@ public class CSD4464A2Test {
 
     /**
      * Test of main method, of class CSD4464A2.
+     *
+     * @throws org.json.simple.parser.ParseException
+     * @Test public void testMain() { System.out.println("main"); String[] args
+     * = null; CSD4464A2.main(args); // TODO review the generated test code and
+     * remove the default call to fail. fail("The test case is a prototype."); }
      */
     @Test
-    public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        CSD4464A2.main(args);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-   
-
-    @Test
-    public void testToString() throws org.json.simple.parser.ParseException {
+    public void testToString() {
         try {
             Student instance = new StudentImpl();
             instance.setId("c0123456");
@@ -70,11 +64,70 @@ public class CSD4464A2Test {
         }
 
     }
-    
-    public class StudentImpl extends Student {
+
+    @Test
+    public void testEqualsStudent() {
+       // Object obj = null;
+        StudentImpl instance1 = new StudentImpl();
+        instance1.setId("C0123456");
+        instance1.setName("Bob");
+        StudentImpl instance2 = new StudentImpl();
+        instance2.setId("C0123456");
+        instance2.setName("Bob");
+        boolean expResult = true;
+        boolean result = instance1.equals(instance2);
+        assertEquals(expResult, result);
     }
 
+    @Test
+    public void testNotEqualsStudent() {
+        Object obj = null;
+        StudentImpl instance1 = new StudentImpl();
+        instance1.setId("C0654321");
+        instance1.setName("Bob");
+        StudentImpl instance2 = new StudentImpl();
+        instance1.setId("C0123456");
+        instance2.setName("Bob");
+        boolean expResult = false;
+        boolean result = instance1.equals(instance2);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testNotNameEqualsStudent() {
+        Object obj = null;
+        StudentImpl instance1 = new StudentImpl();
+        instance1.setId("C0123456");
+        instance1.setName("Jim");
+        StudentImpl instance2 = new StudentImpl();
+        instance1.setId("C0123456");
+        instance2.setName("Bob");
+        boolean expResult = false;
+        boolean result = instance1.equals(instance2);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testNotAllEqualsStudent() {
+        Object obj = null;
+        StudentImpl instance1 = new StudentImpl();
+        instance1.setId("C0645321");
+        instance1.setName("Jim");
+        StudentImpl instance2 = new StudentImpl();
+        instance1.setId("C0123456");
+        instance2.setName("Bob");
+        boolean expResult = false;
+        boolean result = instance1.equals(instance2);
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testNonObject(){
+        Object obj = null;
+      
+}
 
- 
+    public class StudentImpl extends Student {
+    }
 
 }
