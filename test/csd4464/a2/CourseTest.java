@@ -25,7 +25,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author c0538434
- */
+ 
 public class CourseTest {
     
     public List<Student> defaultStudentList;
@@ -276,3 +276,4 @@ public class CourseTest {
     
 }
 
+*/

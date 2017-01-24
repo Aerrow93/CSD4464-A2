@@ -67,8 +67,12 @@ public class Student {
 
     @Override
     public String toString() {
-     //  JSONObject jsonObj = new JSONObject(jsonString.toString());
-        return "Student{" + "name=" + name + ", id=" + id + ", gender=" + gender + ", grade=" + grade + '}';
+      JSONObject json = new JSONObject();
+      json.put("name", name);
+      json.put("id", id);
+      json.put("gender", gender);
+      json.put("grade", grade);
+      return json.toJSONString();
        
     }
 
