@@ -67,7 +67,7 @@ public class CSD4464A2Test {
 
     @Test
     public void testEqualsStudent() {
-       // Object obj = null;
+        // Object obj = null;
         StudentImpl instance1 = new StudentImpl();
         instance1.setId("C0123456");
         instance1.setName("Bob");
@@ -92,7 +92,7 @@ public class CSD4464A2Test {
         boolean result = instance1.equals(instance2);
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testNotNameEqualsStudent() {
         Object obj = null;
@@ -106,7 +106,7 @@ public class CSD4464A2Test {
         boolean result = instance1.equals(instance2);
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testNotAllEqualsStudent() {
         Object obj = null;
@@ -120,12 +120,50 @@ public class CSD4464A2Test {
         boolean result = instance1.equals(instance2);
         assertEquals(expResult, result);
     }
+
+    @Test
+    public void testNonObject() {
+        Object obj = null;
+
+    }
+
+    @Test
+    public void testFullConstructor() {
+        Object obj = null;
+        StudentImpl instance1 = new StudentImpl();
+        instance1.getId();
+        instance1.getName();
+        instance1.getGender();
+        instance1.getGrade();
+        StudentImpl instance2 = new StudentImpl();
+        instance2.getId();
+        instance2.getName();
+        instance2.getGender();
+        instance2.getGrade();
+        boolean expResult = true;
+        boolean result = instance1.equals(instance2);
+        assertEquals(expResult, result);
+
+    }
     
     @Test
-    public void testNonObject(){
+    public void testNoConstructor() {
         Object obj = null;
-      
-}
+        StudentImpl instance1 = new StudentImpl();
+        instance1.getId();
+        instance1.getName();
+        instance1.getGender();
+        instance1.getGrade();
+        StudentImpl instance2 = new StudentImpl();
+        instance2.setId("");
+        instance2.setName("");
+        instance2.setGender("");
+        instance2.setGrade(0);
+        boolean expResult = true;
+        boolean result = instance1.equals(instance2);
+        assertEquals(expResult, result);
+
+    }
 
     public class StudentImpl extends Student {
     }

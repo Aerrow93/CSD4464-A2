@@ -2,7 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
+ 
 package csd4464.a2;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ import static org.junit.Assert.*;
 /**
  *
  * @author c0538434
- */
+ 
 public class CourseTest {
     
     public List<Student> defaultStudentList;
@@ -275,3 +275,5 @@ public class CourseTest {
     
     
 }
+
+*/
