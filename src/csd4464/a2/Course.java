@@ -27,16 +27,6 @@ public class Course {
         this.students.add(students);
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public void insert(List<Student> students, int i){
         
     }

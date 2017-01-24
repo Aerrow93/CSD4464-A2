@@ -18,6 +18,11 @@ public class Student {
     double grade;
 
     public Student() {
+        this.name = "";
+        this. id = "";
+        this.gender = "";
+        this.grade = 0;
+        
     }
 
     public Student(String name, String id, String gender, double grade) {
