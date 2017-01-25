@@ -99,8 +99,8 @@ public class Course {
      *
      * @param position
      */
-    public void get(int position) {
-        this.students = students;
+    public Student get(int position) {
+        return this.students.get(position);
     }
 
     /**
@@ -108,15 +108,25 @@ public class Course {
      *
      * @param id
      */
-    public void get(String id) {
-        this.students = students;
+    public Student get(String id) {
+        Student i = null;
+        for (Student s : this.students) {
+            if (s.id == id) {
+                i = s;
+            }
+
+        }
+        
+        
+        return i;
+
     }
 
     /**
      * Gets the value of all this.student list values
      */
-    public void getAll() {
-        this.students = students;
+    public List<Student> getAll() {
+        return this.students;
     }
 
     /**
@@ -145,7 +155,6 @@ public class Course {
      * @param gender
      * @return students set
      */
-
     public HashSet<Student> getAllByGender(String gender) {
         HashSet<Student> students = new HashSet<>();
         return students;

@@ -182,7 +182,7 @@ public class CourseTest {
     public void equalsMatchesAndReturnsTrue() {
         Course c = new Course(defaultStudentList);
         Course sameCourse = new Course(defaultStudentList);
-        assertEquals(c.equals(sameCourse), true);
+        assertEquals(true, c.equals(sameCourse));
     }
     
     @Test
