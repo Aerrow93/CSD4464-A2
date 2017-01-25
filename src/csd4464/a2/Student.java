@@ -13,19 +13,30 @@ import org.json.simple.JSONObject;
  * @author c0656308
  */
 public class Student {
+
     String name;
     String id;
     String gender;
     double grade;
 
+    /**
+     * No-arg Constructor, sets this.VARIABLES to null/zero
+     */
     public Student() {
         this.name = "";
-        this. id = "";
+        this.id = "";
         this.gender = "";
         this.grade = 0;
-        
     }
 
+    /**
+     * Constructor, taking inputed values and assigning them to this.VARIABLES
+     *
+     * @param name
+     * @param id
+     * @param gender
+     * @param grade
+     */
     public Student(String name, String id, String gender, double grade) {
         this.name = name;
         this.id = id;
@@ -33,49 +44,99 @@ public class Student {
         this.grade = grade;
     }
 
+    /**
+     * Gets value of this.name
+     *
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets value of this.name
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Gets value of this.id
+     *
+     * @return id
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     * Sets value of this.id
+     *
+     * @param id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     * Gets value of this.gender
+     *
+     * @return gender
+     */
     public String getGender() {
         return gender;
     }
 
+    /**
+     * Sets value of this.gender
+     *
+     * @param gender
+     */
     public void setGender(String gender) {
         this.gender = gender;
     }
 
+    /**
+     * Gets value of this.grade
+     *
+     * @return grade
+     */
     public double getGrade() {
         return grade;
     }
 
+    /**
+     * Sets value of this.grade
+     *
+     * @param grade
+     */
     public void setGrade(double grade) {
         this.grade = grade;
     }
 
+    /**
+     * Outputs values into a JSON file
+     *
+     * @return JSON
+     */
     @Override
     public String toString() {
-      JSONObject json = new JSONObject();
-      json.put("name", name);
-      json.put("id", id);
-      json.put("gender", gender);
-      json.put("grade", grade);
-      return json.toJSONString();
-       
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("id", id);
+        json.put("gender", gender);
+        json.put("grade", grade);
+        return json.toJSONString();
     }
 
+    /**
+     * Checking to see if Student object has matching id values
+     *
+     * @param obj student values
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -102,7 +163,5 @@ public class Student {
         }
         return true;
     }
-    
+
 }
-   
-   

@@ -7,6 +7,7 @@ package csd4464.a2;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -28,11 +29,26 @@ public class Course {
         this.students = students;
     }
 
-    public void add(List<Student> students) {
-     //   this.students.add(students);
+    public void add(Student students) {
+        this.students.add(students);
     }
 
-    public void insert(List<Student> students, int i){
-        
+    public void remove(Student students) {
+        this.students.remove(students);
     }
+
+    public void remove(String id) {
+        this.students.remove(id);
+    }
+
+    public void remove(int position) {
+        this.students.remove(position);
+    }
+
+    public void insert(Student students, int i) {
+        this.students.add(i, students);
+    }
+
+  
+
 }
