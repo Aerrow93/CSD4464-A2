@@ -45,12 +45,13 @@ public class CourseTest {
     @Before
     public void setUp() {
         defaultStudentList = new ArrayList<>();
-        defaultStudentList.add(new Student("James", "S1365", "Male", 65));
+        defaultStudentList.add(new Student("James", "S1365", "Male", 26));
         defaultStudentList.add(new Student("Joan", "S9846", "Female", 86));
         defaultStudentList.add(new Student("Jackie", "S1493", "Female", 54));
         defaultStudentList.add(new Student("Josh", "S5997", "Male", 94));
         defaultStudentList.add(new Student("John", "S9737", "Male", 85));
         defaultStudentList.add(new Student("Jacob", "S9873", "Male", 65));
+        defaultStudentList.add(new Student("Jake", "S9874", "Male", 65));
     }
     
     @After
@@ -219,7 +220,7 @@ public class CourseTest {
     public void getGradeMapReturnsLetterGrades() {
         Course c = new Course(defaultStudentList);
         Map<String, List<Student>> letterMap = new HashMap<>();
-        String letterGrade;
+        String letterGrade = "A+";
         List<Student> studentHolder = new ArrayList<>();
         for (Student s : defaultStudentList) 
         {
@@ -249,28 +250,17 @@ public class CourseTest {
                 letterGrade = "D-";
             else
                 letterGrade = "F";
-
             
-            //if (letterMap. containsKey(letterGrade)) 
-            //{
-                System.out.println("Assigning student " + s + " to map as " + letterGrade);
-                studentHolder.clear();
-                
-                if (letterMap.containsKey(letterGrade))
-                {
-                    System.out.println("Already found a student with grade of " + letterGrade + "!");
-                    for (Student t : letterMap.get(letterGrade)){
-                        studentHolder.add(t);
-                    }
-                    
-                }
-
-                System.out.println("In studentHolder: " + studentHolder);
-                studentHolder.add(s);
-                System.out.println("Now: " + studentHolder);
-                letterMap.put(letterGrade, studentHolder);
-                System.out.println("   Lettermap is now: " + letterMap);
-            //}
+            
+            if (letterMap.containsKey(letterGrade)) {
+                letterMap.get(letterGrade).add(s);
+            }
+            else {
+                letterMap.put(letterGrade, new ArrayList<>());
+                letterMap.get(letterGrade).add(s);
+            }
+            
+            
         }
         System.out.println("Final test map: " + letterMap);
         assertEquals(letterMap, c.getGradeMap());
