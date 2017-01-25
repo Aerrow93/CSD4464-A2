@@ -52,10 +52,6 @@ public class CSD4464A2Test {
     public void testNoArgConstructor() {
         Object obj = null;
         Student instance1 = new Student();
-        instance1.getId();
-        instance1.getName();
-        instance1.getGender();
-        instance1.getGrade();
         Student instance2 = new Student();
         instance2.setId("");
         instance2.setName("");
@@ -64,7 +60,6 @@ public class CSD4464A2Test {
         boolean expResult = true;
         boolean result = instance1.equals(instance2);
         assertEquals(expResult, result);
-
     }
 
     @Test
@@ -72,14 +67,13 @@ public class CSD4464A2Test {
         Object obj = null;
         Student instance1 = new Student("Bob", "C0123456", "male", 89.3);
         Student instance2 = new Student();
-        instance2.getId();
-        instance2.getName();
-        instance2.getGender();
-        instance2.getGrade();
+        instance2.setId("C0123456");
+        instance2.setName("Bob");
+        instance2.setGender("male");
+        instance2.setGrade(89.3);
         boolean expResult = true;
         boolean result = instance1.equals(instance2);
         assertEquals(expResult, result);
-
     }
 
     @Test
@@ -176,8 +170,12 @@ public class CSD4464A2Test {
 
     @Test
     public void testNonStudentObject() {
-        Object obj = null;
+       // Object obj = null;
+       // if (obj instanceof String) {
 
+        }
+        else 
+            return true;
     }
 
     @Test
