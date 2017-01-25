@@ -100,6 +100,9 @@ public class Course {
      * @param position
      */
     public Student get(int position) {
+        //Additional logic needs to be put in here to prevent 
+        // out of bounds exceptions (so it returns null when 
+        // position is below zero or above the size of the list
         return this.students.get(position);
     }
 
@@ -166,8 +169,10 @@ public class Course {
      * @return students map
      */
     public Map<String, Set<Student>> getGradeMap() {
-        Map<String, Set<Student>> students = new HashMap<>();
-        return students;
+        Map<String, Set<Student>> studentsMap = new HashMap<>();
+        return studentsMap;
     }
-
+    
+    //TODO: Need to override the toString method to return the properly
+    // formatted JSON (see Course JSON on assignment)
 }

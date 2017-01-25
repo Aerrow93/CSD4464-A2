@@ -46,11 +46,11 @@ public class CourseTest {
     public void setUp() {
         defaultStudentList = new ArrayList<>();
         defaultStudentList.add(new Student("James", "S1365", "Male", 65));
-        defaultStudentList.add(new Student("Joan", "S9846", "Female", 87));
+        defaultStudentList.add(new Student("Joan", "S9846", "Female", 86));
         defaultStudentList.add(new Student("Jackie", "S1493", "Female", 54));
         defaultStudentList.add(new Student("Josh", "S5997", "Male", 94));
-        defaultStudentList.add(new Student("John", "S9737", "Male", 83));
-        defaultStudentList.add(new Student("Jacob", "S9873", "Male", 68));
+        defaultStudentList.add(new Student("John", "S9737", "Male", 85));
+        defaultStudentList.add(new Student("Jacob", "S9873", "Male", 65));
     }
     
     @After
@@ -64,7 +64,7 @@ public class CourseTest {
         //Compare to empty list
         Course c = new Course();
         List<Student> emptyList = new ArrayList<>();
-        assertEquals(c.getAll(), emptyList);
+        assertEquals(emptyList, c.getAll());
     }
     
     @Test
@@ -75,7 +75,7 @@ public class CourseTest {
         Course c = new Course(defaultStudentList);
         List<Student> expectedList = new ArrayList<>();
         expectedList = defaultStudentList;
-        assertEquals(c.getAll(), expectedList);
+        assertEquals(expectedList, c.getAll());
     }
     
     @Test
@@ -88,7 +88,7 @@ public class CourseTest {
         c.add(defaultStudentList.get(2));
         List<Student> expectedList = new ArrayList<>();
         expectedList.add(defaultStudentList.get(2));
-        assertEquals(c.getAll(), expectedList);
+        assertEquals(expectedList, c.getAll());
     }
     
     @Test
@@ -99,7 +99,7 @@ public class CourseTest {
         expectedList = defaultStudentList;
         if (expectedList.remove(new Student("John", "S9737", "Male", 83))) {
             c.remove(new Student("John", "S9737", "Male", 83));
-            assertEquals(c.getAll(), expectedList);
+            assertEquals(expectedList, c.getAll());
         }
         else
             fail("The expected list didn't have the 'John' student element? Tell Matt");
@@ -111,9 +111,9 @@ public class CourseTest {
         Course c = new Course(defaultStudentList);
         List<Student> expectedList = new ArrayList<>();
         expectedList = defaultStudentList;
-        if (expectedList.remove(new Student("John", "S9737", "Male", 83))) {
+        if (expectedList.remove(new Student("John", "S9737", "Male", 85))) {
             c.remove("S9737");
-            assertEquals(c.getAll(), expectedList);
+            assertEquals(expectedList, c.getAll());
         }
         else
             fail("The expected list didn't have the 'S9737' ID? Tell Matt");
@@ -127,7 +127,7 @@ public class CourseTest {
         expectedList = defaultStudentList;
         expectedList.remove(2);
         c.remove(2);
-        assertEquals(c.getAll(), expectedList);
+        assertEquals(expectedList, c.getAll());
     }
     
     @Test
@@ -137,14 +137,14 @@ public class CourseTest {
         expectedList = defaultStudentList;
         c.insert(new Student("Judy", "S1328", "Female", 73), 2);
         expectedList.add(2, new Student("Judy", "S1328", "Female", 73));
-        assertEquals(c.getAll(), expectedList);
+        assertEquals(expectedList, c.getAll());
     }
     
     @Test
     public void getStudentIdReturnsStudentData() {
         Course c = new Course(defaultStudentList);
         Student expectedStudent = defaultStudentList.get(0); //Returns James
-        assertEquals(c.get("S1365"), expectedStudent);
+        assertEquals(expectedStudent, c.get("S1365"));
     }
     
     @Test
@@ -157,7 +157,7 @@ public class CourseTest {
     public void getStudentByIndexReturnsStudentData() {
         Course c = new Course(defaultStudentList);
         Student expectedStudent = defaultStudentList.get(3); //Returns Josh
-        assertEquals(c.get(3), expectedStudent);
+        assertEquals(expectedStudent, c.get(3));
     }
     
     @Test
@@ -175,7 +175,7 @@ public class CourseTest {
     @Test
     public void equalsNotCourseObjectReturnsFalse() {
         Course c = new Course(defaultStudentList);
-        assertEquals(c.equals("Banana Stand"), false);
+        assertEquals(false, c.equals("Banana Stand"));
     }
     
     @Test
@@ -192,7 +192,7 @@ public class CourseTest {
         differentCourse.add(new Student("Kim", "S7838", "Female", 87));
         differentCourse.add(new Student("Kyle", "S1347", "Male", 64));
         differentCourse.add(new Student("Katie", "S1282", "Female", 73));
-        assertEquals(c.equals(differentCourse), false);
+        assertEquals(false, c.equals(differentCourse));
     }
     
     @Test
@@ -200,7 +200,7 @@ public class CourseTest {
         Course c = new Course(defaultStudentList);
         JSONArray expectedJSON = new JSONArray();
         expectedJSON.addAll(defaultStudentList);
-        assertEquals(c.toString(), expectedJSON.toString());
+        assertEquals(expectedJSON.toString(), c.toString());
     }
     
     @Test
@@ -212,65 +212,68 @@ public class CourseTest {
                 expectedList.add(s);
             }
         }
-        assertEquals(c.getAllByGender("Male"), expectedList);
+        assertEquals(expectedList, c.getAllByGender("Male"));
     }
     
     @Test
     public void getGradeMapReturnsLetterGrades() {
         Course c = new Course(defaultStudentList);
-        Map letterMap = new HashMap();
-        Set<Student> studentHolder;
+        Map<String, List<Student>> letterMap = new HashMap<>();
         String letterGrade;
-        for (Student s : defaultStudentList) {
-            studentHolder = new HashSet<Student>();
-            if (studentHolder.isEmpty())
-                studentHolder.add(s);
-            else
-                fail("studentHolder is not empty? Tell Matt.");
-            
-            if (s.grade >= 97){
+        List<Student> studentHolder = new ArrayList<>();
+        for (Student s : defaultStudentList) 
+        {
+            if (s.grade >= 97)
                 letterGrade = "A+";
-            }
-            else if (s.grade >= 94){
+            else if (s.grade >= 94)
                 letterGrade = "A";
-            }
-            else if (s.grade >= 90){
+            else if (s.grade >= 90)
                 letterGrade = "A-";
-            }
-            else if (s.grade >= 87){
+            else if (s.grade >= 87)
                 letterGrade = "B+";
-            }
-            else if (s.grade >= 84){
+            else if (s.grade >= 84)
                 letterGrade = "B";
-            }
-            else if (s.grade >= 80){
+            else if (s.grade >= 80)
                 letterGrade = "B-";
-            }
-            else if (s.grade >= 77){
+            else if (s.grade >= 77)
                 letterGrade = "C+";
-            }
-            else if (s.grade >= 74){
+            else if (s.grade >= 74)
                 letterGrade = "C";
-            }
-            else if (s.grade >= 70){
+            else if (s.grade >= 70)
                 letterGrade = "C-";
-            }
-            else if (s.grade >= 67){
+            else if (s.grade >= 67)
                 letterGrade = "D+";
-            }
-            else if (s.grade >= 64){
+            else if (s.grade >= 64)
                 letterGrade = "D";
-            }
-            else if (s.grade >= 60){
+            else if (s.grade >= 60)
                 letterGrade = "D-";
-            }
-            else{
+            else
                 letterGrade = "F";
-            }
-            studentHolder.add((Student)letterMap.get(letterGrade));
-            letterMap.put(letterGrade, studentHolder);
+
+            
+            //if (letterMap. containsKey(letterGrade)) 
+            //{
+                System.out.println("Assigning student " + s + " to map as " + letterGrade);
+                studentHolder.clear();
+                
+                if (letterMap.containsKey(letterGrade))
+                {
+                    System.out.println("Already found a student with grade of " + letterGrade + "!");
+                    for (Student t : letterMap.get(letterGrade)){
+                        studentHolder.add(t);
+                    }
+                    
+                }
+
+                System.out.println("In studentHolder: " + studentHolder);
+                studentHolder.add(s);
+                System.out.println("Now: " + studentHolder);
+                letterMap.put(letterGrade, studentHolder);
+                System.out.println("   Lettermap is now: " + letterMap);
+            //}
         }
-        assertEquals(c.getGradeMap(), letterMap);
+        System.out.println("Final test map: " + letterMap);
+        assertEquals(letterMap, c.getGradeMap());
     }
     
     
