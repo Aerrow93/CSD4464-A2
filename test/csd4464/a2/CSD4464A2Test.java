@@ -170,12 +170,10 @@ public class CSD4464A2Test {
 
     @Test
     public void testNonStudentObject() {
-       // Object obj = null;
-       // if (obj instanceof String) {
-
-        }
-        else 
-            return true;
+       Course obj = new Course();
+       Student instance = new Student();
+       assertEquals(false, instance.equals(obj));
+        
     }
 
     @Test
