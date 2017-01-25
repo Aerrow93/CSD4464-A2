@@ -6,8 +6,11 @@
 package csd4464.a2;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-import org.json.simple.JSONObject;
+import java.util.Map;
+import java.util.Objects;
+import java.util.TreeMap;
 
 /**
  *
@@ -45,10 +48,43 @@ public class Course {
         this.students.remove(position);
     }
 
-    public void insert(Student students, int i) {
-        this.students.add(i, students);
+    public void insert(Student students, int position) {
+        this.students.add(position, students);
     }
 
-  
+    public void get(int position) {
+        this.students = students;
+    }
+
+    public void get(String id) {
+        this.students = students;
+    }
+
+    public void getAll() {
+        this.students = students;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (obj instanceof Course) {
+            if (this == obj) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+
+    }
+
+    public void getAllByGender(String gender) {
+        HashSet<Student> students = new HashSet<>();
+    }
+
+    public void getGradeMap() {
+        Map<String, Student> students = new TreeMap<>();
+    }
 
 }
