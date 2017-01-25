@@ -49,116 +49,33 @@ public class CSD4464A2Test {
      * remove the default call to fail. fail("The test case is a prototype."); }
      */
     @Test
-    public void testToString() {
-        try {
-            Student instance = new StudentImpl();
-            instance.setId("c0123456");
-            instance.setName("Bill Smith");
-            instance.setGender("male");
-            instance.setGrade(89.3);
-            JSONObject expResult = (JSONObject) new JSONParser().parse("{ \"name\" : \"Bill Smith\", \"id\" : \"c0123456\", \"gender\" : \"male\", \"grade\" : 89.3 }");
-            JSONObject result = (JSONObject) new JSONParser().parse(instance.toString());
-            assertEquals(expResult, result);
-        } catch (ParseException ex) {
-            fail("One of the JSON Objects is invalid JSON. Go to jsonlint.com to find out why.");
-        }
-
-    }
-
-    @Test
-    public void testEqualsStudent() {
-        // Object obj = null;
-        StudentImpl instance1 = new StudentImpl();
-        instance1.setId("C0123456");
-        instance1.setName("Bob");
-        StudentImpl instance2 = new StudentImpl();
-        instance2.setId("C0123456");
-        instance2.setName("Bob");
+    public void testNoArgConstructor() {
+        Object obj = null;
+        Student instance1 = new Student();
+        instance1.getId();
+        instance1.getName();
+        instance1.getGender();
+        instance1.getGrade();
+        Student instance2 = new Student();
+        instance2.setId("");
+        instance2.setName("");
+        instance2.setGender("");
+        instance2.setGrade(0);
         boolean expResult = true;
         boolean result = instance1.equals(instance2);
         assertEquals(expResult, result);
-    }
-
-    @Test
-    public void testNotEqualsStudent() {
-        Object obj = null;
-        StudentImpl instance1 = new StudentImpl();
-        instance1.setId("C0654321");
-        instance1.setName("Bob");
-        StudentImpl instance2 = new StudentImpl();
-        instance1.setId("C0123456");
-        instance2.setName("Bob");
-        boolean expResult = false;
-        boolean result = instance1.equals(instance2);
-        assertEquals(expResult, result);
-    }
-
-    @Test
-    public void testNotNameEqualsStudent() {
-        Object obj = null;
-        StudentImpl instance1 = new StudentImpl();
-        instance1.setId("C0123456");
-        instance1.setName("Jim");
-        StudentImpl instance2 = new StudentImpl();
-        instance1.setId("C0123456");
-        instance2.setName("Bob");
-        boolean expResult = false;
-        boolean result = instance1.equals(instance2);
-        assertEquals(expResult, result);
-    }
-
-    @Test
-    public void testNotAllEqualsStudent() {
-        Object obj = null;
-        StudentImpl instance1 = new StudentImpl();
-        instance1.setId("C0645321");
-        instance1.setName("Jim");
-        StudentImpl instance2 = new StudentImpl();
-        instance1.setId("C0123456");
-        instance2.setName("Bob");
-        boolean expResult = false;
-        boolean result = instance1.equals(instance2);
-        assertEquals(expResult, result);
-    }
-
-    @Test
-    public void testNonObject() {
-        Object obj = null;
 
     }
 
     @Test
     public void testFullConstructor() {
         Object obj = null;
-        StudentImpl instance1 = new StudentImpl();
-        instance1.getId();
-        instance1.getName();
-        instance1.getGender();
-        instance1.getGrade();
-        StudentImpl instance2 = new StudentImpl();
+        Student instance1 = new Student("Bob", "C0123456", "male", 89.3);
+        Student instance2 = new Student();
         instance2.getId();
         instance2.getName();
         instance2.getGender();
         instance2.getGrade();
-        boolean expResult = true;
-        boolean result = instance1.equals(instance2);
-        assertEquals(expResult, result);
-
-    }
-
-    @Test
-    public void testNoConstructor() {
-        Object obj = null;
-        StudentImpl instance1 = new StudentImpl();
-        instance1.getId();
-        instance1.getName();
-        instance1.getGender();
-        instance1.getGrade();
-        StudentImpl instance2 = new StudentImpl();
-        instance2.setId("");
-        instance2.setName("");
-        instance2.setGender("");
-        instance2.setGrade(0);
         boolean expResult = true;
         boolean result = instance1.equals(instance2);
         assertEquals(expResult, result);
@@ -172,11 +89,12 @@ public class CSD4464A2Test {
         String name = "Bill Smith";
         String gender = "male";
         double grade = 89.3;
-        Student instance = new Student(name,id,gender,grade);
+        Student instance = new Student(name, id, gender, grade);
         String expResult = "Bill Smith";
         String result = instance.getName();
         assertEquals(expResult, result);
     }
+
     @Test
     public void testGetId() {
         System.out.println("getId");
@@ -184,38 +102,38 @@ public class CSD4464A2Test {
         String name = "Bill Smith";
         String gender = "male";
         double grade = 89.3;
-        Student instance = new Student(name,id,gender,grade);
+        Student instance = new Student(name, id, gender, grade);
         String expResult = "c0123456";
         String result = instance.getId();
         assertEquals(expResult, result);
     }
-    
-     @Test
+
+    @Test
     public void testGetGender() {
         System.out.println("getGender");
         String id = "c0123456";
         String name = "Bill Smith";
         String gender = "male";
         double grade = 89.3;
-        Student instance = new Student(name,id,gender,grade);
+        Student instance = new Student(name, id, gender, grade);
         String expResult = "male";
         String result = instance.getGender();
         assertEquals(expResult, result);
     }
-    
-     @Test
+
+    @Test
     public void testGetGrade() {
         System.out.println("getGrade");
         String id = "c0123456";
         String name = "Bill Smith";
         String gender = "male";
         double grade = 89.3;
-        Student instance = new Student(name,id,gender,grade);
+        Student instance = new Student(name, id, gender, grade);
         double expResult = 89.3;
         double result = instance.getGrade();
-        assertEquals(expResult, result,0.2);
+        assertEquals(expResult, result, 0.2);
     }
-    
+
     @Test
     public void testSetName() {
         System.out.println("setName");
@@ -225,8 +143,8 @@ public class CSD4464A2Test {
         String result = instance.getName();
         assertEquals(name, result);
     }
-    
-     @Test
+
+    @Test
     public void testSetId() {
         System.out.println("setId");
         String id = "c0123456";
@@ -235,8 +153,8 @@ public class CSD4464A2Test {
         String result = instance.getId();
         assertEquals(id, result);
     }
-    
-     @Test
+
+    @Test
     public void testSetGender() {
         System.out.println("setGender");
         String gender = "male";
@@ -245,18 +163,94 @@ public class CSD4464A2Test {
         String result = instance.getGender();
         assertEquals(gender, result);
     }
-    
-     @Test
+
+    @Test
     public void testSetGrade() {
         System.out.println("setGrade");
         double grade = 89.3;
         Student instance = new Student();
         instance.setGrade(grade);
         double result = instance.getGrade();
-        assertEquals(grade, result,0.02);
+        assertEquals(grade, result, 0.02);
     }
 
-    public class StudentImpl extends Student {
+    @Test
+    public void testNonStudentObject() {
+        Object obj = null;
+
+    }
+
+    @Test
+    public void testNameIdEqualsStudent() {
+        // Object obj = null;
+        Student instance1 = new Student();
+        instance1.setId("C0123456");
+        instance1.setName("Bob");
+        Student instance2 = new Student();
+        instance2.setId("C0123456");
+        instance2.setName("Bob");
+        boolean expResult = true;
+        boolean result = instance1.equals(instance2);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testNotSameIdEqualsStudent() {
+        Object obj = null;
+        Student instance1 = new Student();
+        instance1.setId("C0654321");
+        instance1.setName("Bob");
+        Student instance2 = new Student();
+        instance1.setId("C0123456");
+        instance2.setName("Bob");
+        boolean expResult = false;
+        boolean result = instance1.equals(instance2);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testDifferentNameEqualsStudent() {
+        Object obj = null;
+        Student instance1 = new Student();
+        instance1.setId("C0123456");
+        instance1.setName("Jim");
+        Student instance2 = new Student();
+        instance1.setId("C0123456");
+        instance2.setName("Bob");
+        boolean expResult = false;
+        boolean result = instance1.equals(instance2);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testNotAllEqualStudent() {
+        Object obj = null;
+        Student instance1 = new Student();
+        instance1.setId("C0645321");
+        instance1.setName("Jim");
+        Student instance2 = new Student();
+        instance1.setId("C0123456");
+        instance2.setName("Bob");
+        boolean expResult = false;
+        boolean result = instance1.equals(instance2);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testToStringReturnJSON() {
+        try {
+            Student instance = new Student();
+            instance.setId("c0123456");
+            instance.setName("Bill Smith");
+            instance.setGender("male");
+            instance.setGrade(89.3);
+            JSONObject expResult = (JSONObject) new JSONParser().parse("{ \"name\" : \"Bill Smith\", \"id\" : \"c0123456\", \"gender\" : \"male\", \"grade\" : 89.3 }");
+            JSONObject result = (JSONObject) new JSONParser().parse(instance.toString());
+            assertEquals(expResult, result);
+        } catch (ParseException ex) {
+            fail("One of the JSON Objects is invalid JSON. Go to jsonlint.com to find out why.");
+        }
+
     }
 
 }
