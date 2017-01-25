@@ -23,16 +23,6 @@ public class Course {
     List<Student> students = new ArrayList<Student>();
 
     /**
-     * Outputs values into a JSON String
-     *
-     * @return JSON String
-     */
-    @Override
-    public String toString() {
-        return "Course{" + "students=" + students + '}';
-    }
-
-    /**
      * No-arg Constructor
      */
     public Course() {
@@ -103,9 +93,13 @@ public class Course {
         //Additional logic needs to be put in here to prevent 
         // out of bounds exceptions (so it returns null when 
         // position is below zero or above the size of the list
-        if (position < 0){
+        //MATT see if this is right please
+        int len = students.size();
+        if (position < 0) {
             return null;
-        }else if (position != position){
+        } else if (position != position) {
+            return null;
+        } else if (position > len){
             return null;
         }
         return this.students.get(position);
@@ -122,11 +116,8 @@ public class Course {
             if (s.id == id) {
                 i = s;
             }
-
         }
-
         return i;
-
     }
 
     /**
@@ -144,7 +135,6 @@ public class Course {
      */
     @Override
     public boolean equals(Object obj) {
-
         if (obj instanceof Course) {
             if (this == obj) {
                 return true;
@@ -176,7 +166,15 @@ public class Course {
         Map<String, Set<Student>> studentsMap = new HashMap<>();
         return studentsMap;
     }
-    
-    //TODO: Need to override the toString method to return the properly
-    // formatted JSON (see Course JSON on assignment)
+
+    /**
+     * Outputs values into a JSON String
+     *
+     * @return JSON String
+     */
+    //MATT This was originally typed at the top of the class
+    @Override
+    public String toString() {
+        return "Course{" + "students=" + students + '}';
+    }
 }
