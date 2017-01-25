@@ -173,9 +173,9 @@ public class CSD4464A2Test {
        // Object obj = null;
        // if (obj instanceof String) {
 
-        }
-        else 
-            return true;
+//        }
+//        else 
+//            return true;
     }
 
     @Test
