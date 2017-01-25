@@ -48,8 +48,8 @@ public class CourseTest {
         defaultStudentList.add(new Student("James", "S1365", "Male", 26));
         defaultStudentList.add(new Student("Joan", "S9846", "Female", 86));
         defaultStudentList.add(new Student("Jackie", "S1493", "Female", 54));
-        defaultStudentList.add(new Student("Josh", "S5997", "Male", 94));
-        defaultStudentList.add(new Student("John", "S9737", "Male", 85));
+        defaultStudentList.add(new Student("Josh", "S5997", "Male", 98));
+        defaultStudentList.add(new Student("John", "S9737", "Male", 83));
         defaultStudentList.add(new Student("Jacob", "S9873", "Male", 65));
         defaultStudentList.add(new Student("Jake", "S9874", "Male", 65));
     }
@@ -112,7 +112,7 @@ public class CourseTest {
         Course c = new Course(defaultStudentList);
         List<Student> expectedList = new ArrayList<>();
         expectedList = defaultStudentList;
-        if (expectedList.remove(new Student("John", "S9737", "Male", 85))) {
+        if (expectedList.remove(new Student("John", "S9737", "Male", 83))) {
             c.remove("S9737");
             assertEquals(expectedList, c.getAll());
         }
