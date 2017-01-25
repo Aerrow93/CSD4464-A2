@@ -103,6 +103,11 @@ public class Course {
         //Additional logic needs to be put in here to prevent 
         // out of bounds exceptions (so it returns null when 
         // position is below zero or above the size of the list
+        if (position < 0){
+            return null;
+        }else if (position != position){
+            return null;
+        }
         return this.students.get(position);
     }
 
@@ -119,8 +124,7 @@ public class Course {
             }
 
         }
-        
-        
+
         return i;
 
     }
