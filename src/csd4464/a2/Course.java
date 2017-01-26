@@ -135,15 +135,15 @@ public class Course {
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Course) {
-            if (this == obj) {
+            if (obj == this) {
                 return true;
-            } else {
+            } else if (obj == null){
                 return false;
             }
-        } else {
-            return false;
-        }
+        if (obj instanceof Course) {
+            
+        } return false;
+        
     }
 
     /**
