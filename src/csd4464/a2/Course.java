@@ -129,7 +129,7 @@ public class Course {
         return this.students;
     }
 
-    /**
+/**
      * Checking to see if Student list contains the searched object
      *
      * @param obj
@@ -137,16 +137,22 @@ public class Course {
      */
     @Override
     public boolean equals(Object obj) {
-            if (obj == this) {
-                return true;
-            } else if (obj == null){
-                return false;
-            }
-        if (obj instanceof Course) {
-            
-        } return false;
-        
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Course other = (Course) obj;
+        if (!Objects.equals(this.students, other.students)) {
+            return false;
+        }
+        return true;
     }
+
 
     /**
      * Returns a set of all students by gender
