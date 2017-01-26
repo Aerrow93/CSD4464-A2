@@ -13,8 +13,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 /**
  *
@@ -101,7 +99,7 @@ public class Course {
             return null;
         } else if (position != position) {
             return null;
-        } else if (position > len) {
+        } else if (position > len){
             return null;
         }
         return this.students.get(position);
@@ -177,19 +175,6 @@ public class Course {
     //MATT This was originally typed at the top of the class
     @Override
     public String toString() {
-
-        JSONArray jArray = new JSONArray();
-
-        for (Student student : students) {
-            JSONObject jObject = new JSONObject();
-            jObject.put("gender", student.getGender());
-            jObject.put("grade", student.getGrade());
-            jObject.put("name", student.getName());
-            jObject.put("id", student.getId());
-            jArray.add(jObject);
-        }
-        return jArray.toJSONString();
-
+        return "Course{" + "students=" + students + '}';
     }
-
 }
