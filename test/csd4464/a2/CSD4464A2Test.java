@@ -65,11 +65,11 @@ public class CSD4464A2Test {
     @Test
     public void testFullConstructor() {
         Object obj = null;
-        Student instance1 = new Student("Bob", "C0123456", "male", 89.3);
+        Student instance1 = new Student("Bob", "C0123456", "Male", 89.3);
         Student instance2 = new Student();
         instance2.setId("C0123456");
         instance2.setName("Bob");
-        instance2.setGender("male");
+        instance2.setGender("Male");
         instance2.setGrade(89.3);
         boolean expResult = true;
         boolean result = instance1.equals(instance2);
@@ -79,9 +79,9 @@ public class CSD4464A2Test {
     @Test
     public void testGetName() {
         System.out.println("getName");
-        String id = "c0123456";
+        String id = "C0123456";
         String name = "Bill Smith";
-        String gender = "male";
+        String gender = "Male";
         double grade = 89.3;
         Student instance = new Student(name, id, gender, grade);
         String expResult = "Bill Smith";
@@ -92,12 +92,12 @@ public class CSD4464A2Test {
     @Test
     public void testGetId() {
         System.out.println("getId");
-        String id = "c0123456";
+        String id = "C0123456";
         String name = "Bill Smith";
-        String gender = "male";
+        String gender = "Male";
         double grade = 89.3;
         Student instance = new Student(name, id, gender, grade);
-        String expResult = "c0123456";
+        String expResult = "C0123456";
         String result = instance.getId();
         assertEquals(expResult, result);
     }
@@ -105,12 +105,12 @@ public class CSD4464A2Test {
     @Test
     public void testGetGender() {
         System.out.println("getGender");
-        String id = "c0123456";
+        String id = "C0123456";
         String name = "Bill Smith";
-        String gender = "male";
+        String gender = "Male";
         double grade = 89.3;
         Student instance = new Student(name, id, gender, grade);
-        String expResult = "male";
+        String expResult = "Male";
         String result = instance.getGender();
         assertEquals(expResult, result);
     }
@@ -118,9 +118,9 @@ public class CSD4464A2Test {
     @Test
     public void testGetGrade() {
         System.out.println("getGrade");
-        String id = "c0123456";
+        String id = "C0123456";
         String name = "Bill Smith";
-        String gender = "male";
+        String gender = "Male";
         double grade = 89.3;
         Student instance = new Student(name, id, gender, grade);
         double expResult = 89.3;
@@ -141,7 +141,7 @@ public class CSD4464A2Test {
     @Test
     public void testSetId() {
         System.out.println("setId");
-        String id = "c0123456";
+        String id = "C0123456";
         Student instance = new Student();
         instance.setId(id);
         String result = instance.getId();
@@ -151,7 +151,7 @@ public class CSD4464A2Test {
     @Test
     public void testSetGender() {
         System.out.println("setGender");
-        String gender = "male";
+        String gender = "Male";
         Student instance = new Student();
         instance.setGender(gender);
         String result = instance.getGender();
@@ -236,11 +236,11 @@ public class CSD4464A2Test {
     public void testToStringReturnJSON() {
         try {
             Student instance = new Student();
-            instance.setId("c0123456");
+            instance.setId("C0123456");
             instance.setName("Bill Smith");
-            instance.setGender("male");
+            instance.setGender("Male");
             instance.setGrade(89.3);
-            JSONObject expResult = (JSONObject) new JSONParser().parse("{ \"name\" : \"Bill Smith\", \"id\" : \"c0123456\", \"gender\" : \"male\", \"grade\" : 89.3 }");
+            JSONObject expResult = (JSONObject) new JSONParser().parse("{ \"name\" : \"Bill Smith\", \"id\" : \"C0123456\", \"gender\" : \"Male\", \"grade\" : 89.3 }");
             JSONObject result = (JSONObject) new JSONParser().parse(instance.toString());
             assertEquals(expResult, result);
         } catch (ParseException ex) {

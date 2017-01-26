@@ -208,8 +208,9 @@ public class CourseTest {
     public void getAllByGenderReturnsStudentsOfThatGender() {
         Course c = new Course(defaultStudentList);
         Course expectedList = new Course();
+        String gender = "Male";
         for (Student s : defaultStudentList) {
-            if (s.gender == "Male") {
+            if (s.gender == gender) {
                 expectedList.add(s);
             }
         }
@@ -250,8 +251,7 @@ public class CourseTest {
                 letterGrade = "D-";
             else
                 letterGrade = "F";
-            
-            
+
             if (letterMap.containsKey(letterGrade)) {
                 letterMap.get(letterGrade).add(s);
             }
@@ -259,13 +259,10 @@ public class CourseTest {
                 letterMap.put(letterGrade, new ArrayList<>());
                 letterMap.get(letterGrade).add(s);
             }
-            
-            
         }
         System.out.println("Final test map: " + letterMap);
         assertEquals(letterMap, c.getGradeMap());
     }
-    
-    
+
 }
 
