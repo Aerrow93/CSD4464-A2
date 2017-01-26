@@ -220,9 +220,8 @@ public class CourseTest {
     @Test
     public void getGradeMapReturnsLetterGrades() {
         Course c = new Course(defaultStudentList);
-        Map<String, List<Student>> letterMap = new HashMap<>();
-        String letterGrade = "A+";
-        List<Student> studentHolder = new ArrayList<>();
+        Map<String, Set<Student>> letterMap = new HashMap<>();
+        String letterGrade;
         for (Student s : defaultStudentList) 
         {
             if (s.grade >= 97)
@@ -256,11 +255,10 @@ public class CourseTest {
                 letterMap.get(letterGrade).add(s);
             }
             else {
-                letterMap.put(letterGrade, new ArrayList<>());
+                letterMap.put(letterGrade, new HashSet<>());
                 letterMap.get(letterGrade).add(s);
             }
         }
-        System.out.println("Final test map: " + letterMap);
         assertEquals(letterMap, c.getGradeMap());
     }
 

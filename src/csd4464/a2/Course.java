@@ -161,8 +161,12 @@ public class Course {
      * @return students set
      */
     public HashSet<Student> getAllByGender(String gender) {
-        HashSet<Student> students = new HashSet<>();
-        return students;
+        HashSet<Student> studentSet = new HashSet<>();
+        for (Student s : this.students) {
+            if (s.gender.equals(gender))
+                studentSet.add(s);
+        }
+        return studentSet;
     }
 
     /**
@@ -172,6 +176,44 @@ public class Course {
      */
     public Map<String, Set<Student>> getGradeMap() {
         Map<String, Set<Student>> studentsMap = new HashMap<>();
+        String letterGrade;
+        for (Student s : this.students) {
+            
+            if (s.grade >= 97)
+                letterGrade = "A+";
+            else if (s.grade >= 94)
+                letterGrade = "A";
+            else if (s.grade >= 90)
+                letterGrade = "A-";
+            else if (s.grade >= 87)
+                letterGrade = "B+";
+            else if (s.grade >= 84)
+                letterGrade = "B";
+            else if (s.grade >= 80)
+                letterGrade = "B-";
+            else if (s.grade >= 77)
+                letterGrade = "C+";
+            else if (s.grade >= 74)
+                letterGrade = "C";
+            else if (s.grade >= 70)
+                letterGrade = "C-";
+            else if (s.grade >= 67)
+                letterGrade = "D+";
+            else if (s.grade >= 64)
+                letterGrade = "D";
+            else if (s.grade >= 60)
+                letterGrade = "D-";
+            else
+                letterGrade = "F";
+            
+            if (studentsMap.containsKey(letterGrade)) {
+                studentsMap.get(letterGrade).add(s);
+            }
+            else {
+                studentsMap.put(letterGrade, new HashSet<>());
+                studentsMap.get(letterGrade).add(s);
+            }
+        }
         return studentsMap;
     }
 
