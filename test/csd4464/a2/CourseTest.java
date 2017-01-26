@@ -207,7 +207,7 @@ public class CourseTest {
     @Test
     public void getAllByGenderReturnsStudentsOfThatGender() {
         Course c = new Course(defaultStudentList);
-        Course expectedList = new Course();
+        Set<Student> expectedList = new HashSet<>();
         String gender = "Male";
         for (Student s : defaultStudentList) {
             if (s.gender == gender) {
